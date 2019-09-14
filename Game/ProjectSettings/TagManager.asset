@@ -4,15 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlasticBin
-  - PaperBin
-  - GlassBin
-  - OrganicBin
-  - MetalBin
-  - Non-RecyclableBin
-  - AGDBin
-  - BatteryBin
-  - CupBin
+  - Plastic
+  - Paper
+  - Glass
+  - Organic
+  - Others
+  - Metal
+  - Battery
+  - Cup
   layers:
   - Default
   - TransparentFX
