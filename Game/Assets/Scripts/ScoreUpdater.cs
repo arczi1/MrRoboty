@@ -5,17 +5,11 @@ using UnityEngine.UI;
 
 public class ScoreUpdater : MonoBehaviour
 {
-    private int score = 0;
     public Text scoreText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void setPoints(int score)
     {
         scoreText.text = "Score : " + score;
     }
+
 }
