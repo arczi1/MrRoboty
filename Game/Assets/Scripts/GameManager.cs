@@ -48,16 +48,16 @@ public class GameManager : MonoBehaviour
 
     void chooseTypes()
     {
-        string first = types[Random.Range(0, binAmount)];
-        string second = types[Random.Range(0, binAmount)];
+        string first = types[Random.Range(0, binAmount - 1)];
+        string second = types[Random.Range(0, binAmount - 1)];
         while (first == second)
         {
-            second = types[Random.Range(0, binAmount)];
+            second = types[Random.Range(0, binAmount - 1)];
         }
-        string third = types[Random.Range(0, binAmount)];
+        string third = types[Random.Range(0, binAmount - 1)];
         while (first == third || second == third)
         {
-            third = types[Random.Range(0, binAmount)];
+            third = types[Random.Range(0, binAmount - 1)];
         }
 
         consideredTypes.Add(first);

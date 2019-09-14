@@ -8,7 +8,7 @@ public class Trash : MonoBehaviour
     public SpriteRenderer graphics;
     private float fallingSpeed = 150.0f;
     private string type;
-    private float timeUntilDestroy = 4.0f;
+    private float timeUntilDestroy = 6.0f;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class Trash : MonoBehaviour
 
     private void trashMovement()
     {
-        Vector3 fallingDireciton = new Vector3(0, -2, 0);
+        Vector3 fallingDireciton = new Vector3(0, -1, 0);
         transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 100);
     }
 
