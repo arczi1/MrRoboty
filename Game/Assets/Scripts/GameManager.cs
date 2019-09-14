@@ -6,25 +6,38 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Sprites")]
-    public Sprite[] binSprites;
     public Sprite[] trashSprites;
-    public Dictionary<string, Sprite> binSpritesMap = new Dictionary<string, Sprite>;
+    public Dictionary<string, Sprite> trashSpritesMap = new Dictionary<string, Sprite>();
 
-    public List<string> considereadTypes = new List<string>();
+    public Sprite[] binSprites;  
+    public Dictionary<string, Sprite> binSpritesMap = new Dictionary<string, Sprite>();
 
-    string[] types = { "Plastic", "Paper", "Glass", "Organic", "Others", "Metal", "Battery", "Cup"};
+    public List<string> consideredTypes = new List<string>();
 
-    void OnAwake()
+    string[] types = { "Plastic", "Paper", "Glass", "Organic", "Others", "Metal", "Battery"/*, "Cup"*/};
+
+    void Start()
     {
         chooseTypes();
-
-        binSpritesMap["Plastic"] = binSprites[0];
-
+        initializeBinSpritesMap();
     }
+
+    private void initializeBinSpritesMap()
+    {
+        binSpritesMap["Plastic"] = binSprites[0];
+        binSpritesMap["Paper"] = binSprites[1];
+        binSpritesMap["Glass"] = binSprites[2];
+        binSpritesMap["Organic"] = binSprites[3];
+        binSpritesMap["Others"] = binSprites[4];
+        binSpritesMap["Metal"] = binSprites[5];
+        binSpritesMap["Battery"] = binSprites[6];
+        //binSpritesMap["Cup"] = binSprites[7];
+    }
+
 
     public Sprite getBinSprite(string spriteName)
     {
-        return binSprites[binSpritesMap[spriteName]];
+        return binSpritesMap[spriteName];
     }
 
     public Sprite getTrashSprite(int index)

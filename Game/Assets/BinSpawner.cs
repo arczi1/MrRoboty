@@ -19,7 +19,7 @@ public class BinSpawner : MonoBehaviour
 
         for (int i = 0; i < numberOfBins; i++)
         {
-            Instantiate<GameObject>(bin, new Vector3(firstBinXPosition + i * sizeOfFirstPart, 0, 0), new Quaternion(), this.transform);
+            Instantiate<GameObject>(bin, new Vector3(firstBinXPosition + i * sizeOfFirstPart, -cameraHeight/2, 0), new Quaternion(), this.transform);
         }
     }
 }

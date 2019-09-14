@@ -5,20 +5,17 @@ using UnityEngine;
 public class BinScript : MonoBehaviour
 {
     public GameManager gameManager;
+    public SpriteRenderer graphics;
     private static int binCounter = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-
-        setTag(gameManager.consideredTypes[binCounter]);
+        string type = gameManager.consideredTypes[binCounter];
+        setTag(type);
+        graphics.sprite = gameManager.getBinSprite(type);
         binCounter++;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void setTag(string type)
