@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
+    private float fallingSpeed = 150;
     private TrashType type;
 
     public enum TrashType
@@ -19,8 +20,11 @@ public class Trash : MonoBehaviour
         CUP,
         NULL
     }
-    public Trash(TrashType type)
+    
+    void Update()
     {
-        this.type = type;
+        Vector3 fallingDireciton = new Vector3(0, -1, 0);
+
+        transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 100);
     }
 }
