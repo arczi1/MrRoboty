@@ -6,8 +6,9 @@ public class Trash : MonoBehaviour
 {
     private GameManager gameManager;
     public SpriteRenderer graphics;
-    private float fallingSpeed = 150;
+    private float fallingSpeed = 150.0f;
     private string type;
+    private float timeUntilDestroy = 4.0f;
 
     void Start()
     {
@@ -20,18 +21,25 @@ public class Trash : MonoBehaviour
     
     void Update()
     {
+        timeUntilDestroy -= Time.deltaTime;
+        if(timeUntilDestroy <= 0)
+        {
+            Destroy(gameObject);
+        }
         trashMovement();
     }
 
     private void trashMovement()
     {
-        Vector3 fallingDireciton = new Vector3(0, -1, 0);
+        Vector3 fallingDireciton = new Vector3(0, -2, 0);
         transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 100);
     }
 
     void onCollisionEnter2D(Collider2D col)
     {
-        if (col.tag == type) { }
+        if (col.tag == type)
+        {
             //add points
+        }
     }
 }
