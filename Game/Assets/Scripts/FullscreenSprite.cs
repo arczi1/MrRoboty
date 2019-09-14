@@ -15,7 +15,7 @@ public class FullscreenSprite : MonoBehaviour
         Vector2 scale = transform.localScale;
         scale.x *= cameraSize.x / spriteSize.x;
         scale.y *= cameraSize.y / spriteSize.y;
-        transform.position = Vector2.zero; // Optional
+        transform.position = Vector2.zero;
         transform.localScale = scale;
     }
 
