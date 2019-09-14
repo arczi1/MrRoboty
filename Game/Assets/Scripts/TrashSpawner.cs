@@ -21,7 +21,7 @@ public class TrashSpawner : MonoBehaviour
 
     public void spawnTrash()
     {
-        float xPosition = Random.Range(-2.5f, 2.5f);
+        float xPosition = Random.Range(-Camera.main.aspect * Camera.main.orthographicSize, Camera.main.aspect * Camera.main.orthographicSize);
         Instantiate<GameObject>(trash, new Vector3(xPosition, 5.5f, 0), new Quaternion());
     }
 }
