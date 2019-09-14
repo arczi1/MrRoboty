@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class GameManager : MonoBehaviour
 {
     [Header("Sprites")]
@@ -15,6 +14,8 @@ public class GameManager : MonoBehaviour
     public List<string> consideredTypes = new List<string>();
 
     string[] types = { "Plastic", "Paper", "Glass", "Organic", "Others", "Metal", "Battery"/*, "Cup"*/};
+
+    private const int binAmount = 7;
 
     void Start()
     {
@@ -47,16 +48,16 @@ public class GameManager : MonoBehaviour
 
     void chooseTypes()
     {
-        string first = types[Random.Range(0, 7)];
-        string second = types[Random.Range(0, 7)];
+        string first = types[Random.Range(0, binAmount)];
+        string second = types[Random.Range(0, binAmount)];
         while (first == second)
         {
-            second = types[Random.Range(0, 7)];
+            second = types[Random.Range(0, binAmount)];
         }
-        string third = types[Random.Range(0, 7)];
+        string third = types[Random.Range(0, binAmount)];
         while (first == third || second == third)
         {
-            third = types[Random.Range(0, 7)];
+            third = types[Random.Range(0, binAmount)];
         }
 
         consideredTypes.Add(first);
