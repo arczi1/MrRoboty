@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BinScript : MonoBehaviour
 {
+    public GameManager gameManager;
+    private static int binCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
+
+        setTag(gameManager.consideredTypes[binCounter]);
+        binCounter++;
     }
 
     // Update is called once per frame
@@ -16,37 +21,8 @@ public class BinScript : MonoBehaviour
         
     }
 
-    private void setTag(Trash.TrashType type)
+    private void setTag(string type)
     {
-        switch(type)
-        {
-            case Trash.TrashType.PLASTIC:
-                tag = "PlasticBin";
-                break;
-            case Trash.TrashType.PAPER:
-                tag = "PaperBin";
-                break;
-            case Trash.TrashType.GLASS:
-                tag = "GlassBin";
-                break;
-            case Trash.TrashType.ORGANIC:
-                tag = "OrganicBin";
-                break;
-            case Trash.TrashType.NON_RECYCLABLE:
-                tag = "Non-RecyclableBin";
-                break;
-            case Trash.TrashType.METAL:
-                tag = "MetalBin";
-                break;
-            case Trash.TrashType.BATTERY:
-                tag = "BatteryBin";
-                break;
-            case Trash.TrashType.CUP:
-                tag = "CupBin";
-                break;
-            default:
-                tag = "NullBin";
-                break;
-        }
-    }
+        tag = type;
+    } 
 }
