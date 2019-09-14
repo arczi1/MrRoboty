@@ -8,26 +8,46 @@ public class GameManager : MonoBehaviour
     [Header("Sprites")]
     public Sprite[] binSprites;
     public Sprite[] trashSprites;
+    public Dictionary<string, Sprite> binSpritesMap = new Dictionary<string, Sprite>;
 
-    // Start is called before the first frame update
-    void Start()
+    public List<string> considereadTypes = new List<string>();
+
+    string[] types = { "Plastic", "Paper", "Glass", "Organic", "Others", "Metal", "Battery", "Cup"};
+
+    void OnAwake()
     {
-        
+        chooseTypes();
+
+        binSpritesMap["Plastic"] = binSprites[0];
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public Sprite getBinSprite(string spriteName)
     {
-        
-    }
-
-    public Sprite getBinSprite(int index)
-    {
-        return binSprites[index];
+        return binSprites[binSpritesMap[spriteName]];
     }
 
     public Sprite getTrashSprite(int index)
     {
         return trashSprites[index];
+    }
+
+    void chooseTypes()
+    {
+        string first = types[Random.Range(0, 7)];
+        string second = types[Random.Range(0, 7)];
+        while (first == second)
+        {
+            second = types[Random.Range(0, 7)];
+        }
+        string third = types[Random.Range(0, 7)];
+        while (first == third || second == third)
+        {
+            third = types[Random.Range(0, 7)];
+        }
+
+        consideredTypes.Add(first);
+        consideredTypes.Add(second);
+        consideredTypes.Add(third);
     }
 }
