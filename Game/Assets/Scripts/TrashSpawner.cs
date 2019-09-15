@@ -7,10 +7,17 @@ public class TrashSpawner : MonoBehaviour
     public GameObject trash;
     public float timeBeetwenSpawns = 5f;
     private float countdown = 2f;
+    private WindowManager windowManager;
+
+    void Start()
+    {
+        
+        windowManager = FindObjectOfType<WindowManager>();
+    }
 
     void Update()
     {
-        if(countdown <= 0f)
+        if(!windowManager.getMessageWindow() && countdown <= 0f)
         {
             spawnTrash();
             countdown = timeBeetwenSpawns;

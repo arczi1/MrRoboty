@@ -8,7 +8,7 @@ public class Trash : MonoBehaviour
     public SpriteRenderer graphics;
     private float fallingSpeed = 200.0f;
     private string type;
-    private float timeUntilDestroy = 20.0f;
+    private float timeUntilDestroy = 10.0f;
     private int randomTrashType = 0;
     private Vector3 mOffset;
     private float mZCoord;
@@ -30,19 +30,18 @@ public class Trash : MonoBehaviour
     void Update()
     {
         timeUntilDestroy -= Time.deltaTime;
-        if (timeUntilDestroy <= 0)
+        if (!windowManager.getMessageWindow() && timeUntilDestroy <= 0)
         {
             Destroy(gameObject);
             gameManager.changePoints(-2);
-            windowManager.setMessageWindow(true);
         }
         trashMovement();
-        if (gameObject.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize + 0.2)
+        if (!windowManager.getMessageWindow() && gameObject.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize + 0.2)
         {
             Vector3 fallingDireciton = new Vector3(1, 0, 0);
             transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 20);
         }
-        else if (gameObject.transform.position.x > Camera.main.aspect* Camera.main.orthographicSize - 0.2)
+        else if (!windowManager.getMessageWindow() && gameObject.transform.position.x > Camera.main.aspect* Camera.main.orthographicSize - 0.2)
         {
             Vector3 fallingDireciton = new Vector3(-1, 0, 0);
             transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 20);
@@ -62,6 +61,7 @@ public class Trash : MonoBehaviour
         }
         else
         {
+            windowManager.setMessageWindow(true);
             gameManager.changePoints(-1);
         }
         Destroy(this.gameObject);
