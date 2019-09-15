@@ -8,8 +8,10 @@ public class Trash : MonoBehaviour
     public SpriteRenderer graphics;
     private float fallingSpeed = 200.0f;
     private string type;
-    private float timeUntilDestroy = 7.0f;
+    private float timeUntilDestroy = 20.0f;
     private int randomTrashType = 0;
+    private Vector3 mOffset;
+    private float mZCoord;
 
     void Start()
     {
@@ -42,5 +44,24 @@ public class Trash : MonoBehaviour
         {
             //add points
         }
+    }
+
+    void OnMouseDown()
+    {
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        mOffset = gameObject.transform.position - GetMouseWorldPos();
+    }
+
+    private Vector3 GetMouseWorldPos()
+    {
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = mZCoord;
+
+        return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+
+    void OnMouseDrag()
+    {
+        transform.position = GetMouseWorldPos() + mOffset;
     }
 }
