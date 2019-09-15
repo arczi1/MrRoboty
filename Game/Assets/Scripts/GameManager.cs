@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
     [Header("Sprites")]
     public Sprite[] trashSprites;
     public Dictionary<string, Dictionary<int, Sprite>> trashSpritesMap = new Dictionary<string, Dictionary<int, Sprite>>();
@@ -16,9 +17,15 @@ public class GameManager : MonoBehaviour
     string[] types = { "Plastic", "Paper", "Glass", "Organic", "Others", "Metal", "Battery"/*, "Cup"*/};
 
     private const int binAmount = 7;
+    private static int _currentPoints;
+    public static int CurrentPoints
+    {
+        get { return _currentPoints;  }
+    }
 
     void Start()
     {
+        _currentPoints = 0;  
         chooseTypes();
         initializeBinSpritesMap();
     }
