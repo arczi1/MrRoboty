@@ -578,10 +578,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashSprites:
-  - {fileID: 21300000, guid: 393630dd066ea9243af57b1228931190, type: 3}
-  - {fileID: 21300000, guid: 272779a0ce4e5224abedbc9c6eea2681, type: 3}
-  - {fileID: 21300000, guid: 2c3a5806199d7d24daba75d9adb6b067, type: 3}
+  - {fileID: 21300000, guid: 97bbeef7d50f4fa48af10018dc2b74bb, type: 3}
+  - {fileID: 21300000, guid: 2391d2af208449e41b3b58a896ba016f, type: 3}
   - {fileID: 21300000, guid: 1966824fb87b60a4cab7e2fdca457fea, type: 3}
+  - {fileID: 21300000, guid: a85fbd6e5b04c1d4aa1d7806c78bd181, type: 3}
+  - {fileID: 21300000, guid: 0dc053e89e6564246abfadd0155bc132, type: 3}
+  - {fileID: 21300000, guid: 272779a0ce4e5224abedbc9c6eea2681, type: 3}
+  - {fileID: 21300000, guid: 393630dd066ea9243af57b1228931190, type: 3}
+  - {fileID: 21300000, guid: 4cd80ad24e92d6948b788ee61a443aba, type: 3}
+  - {fileID: 21300000, guid: 2d3252f7143a2f64690eb19ba435d752, type: 3}
+  - {fileID: 21300000, guid: 13d1dc91a529b2a4ba8732e27ce52f2d, type: 3}
+  - {fileID: 21300000, guid: e491d17f0d533dd449a8ef9f003ec9c1, type: 3}
+  - {fileID: 21300000, guid: 2c3a5806199d7d24daba75d9adb6b067, type: 3}
   binSprites:
   - {fileID: 21300000, guid: bca6702d16f1dde4b8b6256a640543cc, type: 3}
   - {fileID: 21300000, guid: 978ab44ee6eaae042bb1d086ce38eebd, type: 3}
@@ -603,7 +611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f5d0813f9c6d64aaf4c92c0422ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1965795894}
 --- !u!1 &1965795891
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f5d0813f9c6d64aaf4c92c0422ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
 --- !u!114 &1965795894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: 'Score : 00000000000
+  m_Text: 'Score : 0
 
 '
 --- !u!222 &1965795895

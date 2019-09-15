@@ -24,8 +24,7 @@ public class Trash : MonoBehaviour
         type = gameManager.consideredTypes[randomTrashType];
         Debug.Log(type);
         //set random sprites from sprites of considered type
-        graphics.sprite = gameManager.getTrashSprite(randomTrashType);
-        //graphics.sprite = gameManager.getTrashSprite(type, Random.Range(0, 3));
+        graphics.sprite = gameManager.getTrashSprite(type, Random.Range(0, 3));
     }
 
     void Update()
@@ -34,6 +33,7 @@ public class Trash : MonoBehaviour
         if (timeUntilDestroy <= 0)
         {
             Destroy(gameObject);
+            gameManager.changePoints(-2);
             windowManager.setMessageWindow(true);
         }
         trashMovement();
@@ -58,7 +58,11 @@ public class Trash : MonoBehaviour
     {
         if (col.gameObject.tag == type)
         {
-            //add points
+            gameManager.changePoints(1);
+        }
+        else
+        {
+            gameManager.changePoints(-1);
         }
         Destroy(this.gameObject);
     }
