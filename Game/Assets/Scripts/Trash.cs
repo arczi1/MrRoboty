@@ -6,16 +6,17 @@ public class Trash : MonoBehaviour
 {
     private GameManager gameManager;
     public SpriteRenderer graphics;
-    private float fallingSpeed = 150.0f;
+    private float fallingSpeed = 200.0f;
     private string type;
-    private float timeUntilDestroy = 6.0f;
+    private float timeUntilDestroy = 7.0f;
+    private int randomTrashType = 0;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        type = gameManager.consideredTypes[Random.Range(0, 2)];
-
-        //graphics.sprite = gameManager.getTrashSprite(Random.Range(0, 4));
+        randomTrashType = Random.Range(0, 2);
+        type = gameManager.consideredTypes[randomTrashType];
+        graphics.sprite = gameManager.getTrashSprite(randomTrashType);
 
     }
     
