@@ -12,10 +12,12 @@ public class Trash : MonoBehaviour
     private int randomTrashType = 0;
     private Vector3 mOffset;
     private float mZCoord;
+    private WindowManager windowManager;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        windowManager = FindObjectOfType<WindowManager>();
 
         //gets random index of one of considered types
         randomTrashType = Random.Range(0, 3);
@@ -32,6 +34,7 @@ public class Trash : MonoBehaviour
         if (timeUntilDestroy <= 0)
         {
             Destroy(gameObject);
+            windowManager.setMessageWindow(true);
         }
         trashMovement();
         if (gameObject.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize + 0.2)
