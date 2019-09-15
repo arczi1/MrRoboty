@@ -20,6 +20,6 @@ public class BinScript : MonoBehaviour
 
     private void setTag(string type)
     {
-        tag = type;
+        gameObject.tag = type;
     } 
 }

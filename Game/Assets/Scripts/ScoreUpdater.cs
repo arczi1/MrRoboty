@@ -7,9 +7,14 @@ public class ScoreUpdater : MonoBehaviour
 {
     public Text scoreText;
 
+    void Start()
+    {
+        scoreText.text = "Score : 0";
+    }
+
     void setPoints(int score)
     {
-        scoreText.text = "Score : " + score;
+        scoreText.text = "Score : " + score.ToString();
     }
 
 }

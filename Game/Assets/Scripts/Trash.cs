@@ -57,7 +57,10 @@ public class Trash : MonoBehaviour
         if (col.tag == type)
         {
             //add points
+            Debug.Log("The same");
         }
+        Debug.Log("Collides");
+        Destroy(this.gameObject);
     }
 
     void OnMouseDown()
