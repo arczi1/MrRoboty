@@ -6,15 +6,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ScoreUpdater : MonoBehaviour
 {
-    public Text scoreText;
+    public static Text scoreText;
 
     void Start()
     {
         scoreText = GetComponent<Text>();
     }
 
-    void setPoints(int score)
+    public static void setPoints(int score)
     {
+        
         scoreText.text = "Score : " + score.ToString();
     }
 
