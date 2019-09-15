@@ -16,10 +16,14 @@ public class Trash : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+
+        //gets random index of one of considered types
         randomTrashType = Random.Range(0, 2);
         type = gameManager.consideredTypes[randomTrashType];
-        graphics.sprite = gameManager.getTrashSprite(randomTrashType);
 
+        //set random sprites from sprites of considered type
+        graphics.sprite = gameManager.getTrashSprite(randomTrashType);
+        //graphics.sprite = gameManager.getTrashSprite(type, Random.Range(0, 3));
     }
 
     void Update()

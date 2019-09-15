@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Sprites")]
     public Sprite[] trashSprites;
-    public Dictionary<string, Sprite> trashSpritesMap = new Dictionary<string, Sprite>();
+    public Dictionary<string, Dictionary<int, Sprite>> trashSpritesMap = new Dictionary<string, Dictionary<int, Sprite>>();
 
     public Sprite[] binSprites;  
     public Dictionary<string, Sprite> binSpritesMap = new Dictionary<string, Sprite>();
@@ -33,6 +33,17 @@ public class GameManager : MonoBehaviour
         binSpritesMap["Metal"] = binSprites[5];
         binSpritesMap["Battery"] = binSprites[6];
         //binSpritesMap["Cup"] = binSprites[7];
+    }
+
+    private void initializeTrashSpritesMap()
+    {
+        trashSpritesMap["Plastic"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Paper"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Glass"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Organic"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Others"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Metal"] = new Dictionary<int, Sprite>();
+        trashSpritesMap["Battery"] = new Dictionary<int, Sprite>();
     }
 
 
