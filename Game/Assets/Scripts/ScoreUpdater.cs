@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
 public class ScoreUpdater : MonoBehaviour
 {
     public Text scoreText;
 
     void Start()
     {
-        scoreText.text = "Score : 0";
+        scoreText = GetComponent<Text>();
     }
 
     void setPoints(int score)
