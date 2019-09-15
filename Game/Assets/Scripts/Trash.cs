@@ -21,15 +21,25 @@ public class Trash : MonoBehaviour
         graphics.sprite = gameManager.getTrashSprite(randomTrashType);
 
     }
-    
+
     void Update()
     {
         timeUntilDestroy -= Time.deltaTime;
-        if(timeUntilDestroy <= 0)
+        if (timeUntilDestroy <= 0)
         {
             Destroy(gameObject);
         }
         trashMovement();
+        if (gameObject.transform.position.x < -Camera.main.aspect * Camera.main.orthographicSize + 0.2)
+        {
+            Vector3 fallingDireciton = new Vector3(1, 0, 0);
+            transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 20);
+        }
+        else if (gameObject.transform.position.x > Camera.main.aspect* Camera.main.orthographicSize - 0.2)
+        {
+            Vector3 fallingDireciton = new Vector3(-1, 0, 0);
+            transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 20);
+        }
     }
 
     private void trashMovement()
