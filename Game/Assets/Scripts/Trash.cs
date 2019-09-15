@@ -18,9 +18,9 @@ public class Trash : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
 
         //gets random index of one of considered types
-        randomTrashType = Random.Range(0, 2);
+        randomTrashType = Random.Range(0, 3);
         type = gameManager.consideredTypes[randomTrashType];
-
+        Debug.Log(type);
         //set random sprites from sprites of considered type
         graphics.sprite = gameManager.getTrashSprite(randomTrashType);
         //graphics.sprite = gameManager.getTrashSprite(type, Random.Range(0, 3));
@@ -51,13 +51,12 @@ public class Trash : MonoBehaviour
         Vector3 fallingDireciton = new Vector3(0, -1, 0);
         transform.position = (transform.position + fallingDireciton * Time.deltaTime * fallingSpeed / 100);
     }
-
-    void onCollisionEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.tag == type)
+        if (col.gameObject.tag == type)
         {
             //add points
-            Debug.Log("The same");
+            Debug.Log(col.gameObject.tag + "The same" + type);
         }
         Debug.Log("Collides");
         Destroy(this.gameObject);
